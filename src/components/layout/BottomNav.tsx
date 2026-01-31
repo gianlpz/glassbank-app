@@ -75,7 +75,7 @@ export function BottomNav({ currentPath, onNavigate }: BottomNavProps) {
 
     return (
         <nav aria-label="Main Navigation" className="fixed bottom-0 left-0 right-0 glass-card-strong safe-bottom border-t border-white/10">
-            <div className="max-w-[430px] mx-auto flex items-center justify-around py-2">
+            <div className="w-full md:max-w-[600px] lg:max-w-[800px] mx-auto flex items-center justify-around py-2 md:py-3 lg:py-4 px-2 md:px-4">
                 {navItems.map((item) => {
                     const isActive = currentPath === item.path || currentPath.startsWith(item.path + '/');
 
@@ -84,11 +84,11 @@ export function BottomNav({ currentPath, onNavigate }: BottomNavProps) {
                             key={item.id}
                             onClick={() => onNavigate(item.path)}
                             className={cn(
-                                'flex flex-col items-center gap-1 py-2 px-4 rounded-xl transition-all duration-200',
+                                'flex flex-col items-center gap-1 md:gap-1.5 py-2 md:py-3 px-4 md:px-6 lg:px-8 rounded-xl transition-all duration-200 min-w-[44px] min-h-[44px] md:min-w-[56px] md:min-h-[56px]',
                                 isActive
                                     ? 'text-white'
                                     : 'text-white/50 hover:text-white/70',
-                                isSimplified && 'py-3 px-6'
+                                isSimplified && 'py-3 md:py-4 px-6 md:px-8'
                             )}
                             aria-label={t(item.labelKey)}
                             aria-current={isActive ? 'page' : undefined}
@@ -96,19 +96,19 @@ export function BottomNav({ currentPath, onNavigate }: BottomNavProps) {
                             <span className={cn(
                                 'transition-all duration-200',
                                 isActive && 'text-primary',
-                                isSimplified && 'scale-125'
+                                isSimplified && 'scale-125 md:scale-150'
                             )}>
                                 {item.icon}
                             </span>
                             <span className={cn(
-                                'text-xs font-medium',
+                                'text-xs md:text-sm font-medium',
                                 isActive && 'text-primary',
-                                isSimplified && 'text-sm'
+                                isSimplified && 'text-sm md:text-base'
                             )}>
                                 {t(item.labelKey)}
                             </span>
                             {isActive && (
-                                <div className="w-1 h-1 rounded-full bg-primary mt-0.5" />
+                                <div className="w-1 h-1 md:w-1.5 md:h-1.5 rounded-full bg-primary mt-0.5" />
                             )}
                         </button>
                     );

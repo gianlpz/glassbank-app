@@ -52,7 +52,7 @@ export function Header({
         <header
             aria-label="App Header"
             className={cn(
-                'flex items-center justify-between px-4 py-3 safe-top',
+                'flex items-center justify-between px-4 md:px-6 lg:px-8 py-3 md:py-4 safe-top',
                 className
             )}>
             {/* Left side */}
@@ -60,42 +60,42 @@ export function Header({
                 {showBack ? (
                     <button
                         onClick={onBack}
-                        className="p-2 -ml-2 text-white/70 hover:text-white transition-colors rounded-xl hover:bg-white/10"
+                        className="p-2 md:p-3 -ml-2 text-white/70 hover:text-white transition-colors rounded-xl hover:bg-white/10 min-w-[44px] min-h-[44px] md:min-w-[48px] md:min-h-[48px] flex items-center justify-center"
                         aria-label={t('back')}
                     >
                         <ChevronLeftIcon />
                     </button>
                 ) : (
-                    <div className="flex items-center gap-2">
-                        <div className="w-8 h-8 rounded-lg gradient-primary flex items-center justify-center">
-                            <span className="text-white font-bold text-sm">G</span>
+                    <div className="flex items-center gap-2 md:gap-3">
+                        <div className="w-8 h-8 md:w-10 md:h-10 rounded-lg md:rounded-xl gradient-primary flex items-center justify-center">
+                            <span className="text-white font-bold text-sm md:text-base">G</span>
                         </div>
-                        <span className="font-semibold text-white">GlassBank</span>
+                        <span className="font-semibold text-white md:text-lg">GlassBank</span>
                     </div>
                 )}
                 {title && showBack && (
-                    <h1 className="text-lg font-semibold text-white">{title}</h1>
+                    <h1 className="text-lg md:text-xl font-semibold text-white">{title}</h1>
                 )}
             </div>
 
             {/* Center title when no back button */}
             {title && !showBack && (
-                <h1 className="text-lg font-semibold text-white absolute left-1/2 -translate-x-1/2">
+                <h1 className="text-lg md:text-xl font-semibold text-white absolute left-1/2 -translate-x-1/2">
                     {title}
                 </h1>
             )}
 
             {/* Right side */}
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 md:gap-3">
                 {showNotifications && (
                     <button
                         onClick={onNotifications}
-                        className="p-2 text-white/70 hover:text-white transition-colors rounded-xl hover:bg-white/10 relative"
+                        className="p-2 md:p-3 text-white/70 hover:text-white transition-colors rounded-xl hover:bg-white/10 relative min-w-[44px] min-h-[44px] md:min-w-[48px] md:min-h-[48px] flex items-center justify-center"
                         aria-label={t('notifications')}
                     >
                         <BellIcon />
                         {notificationCount > 0 && (
-                            <span className="absolute top-1 right-1 w-4 h-4 bg-accent rounded-full text-[10px] text-white flex items-center justify-center font-medium">
+                            <span className="absolute top-1 right-1 w-4 h-4 md:w-5 md:h-5 bg-accent rounded-full text-[10px] md:text-xs text-white flex items-center justify-center font-medium">
                                 {notificationCount > 9 ? '9+' : notificationCount}
                             </span>
                         )}
@@ -104,7 +104,7 @@ export function Header({
                 {showSettings && (
                     <button
                         onClick={onSettings}
-                        className="p-2 text-white/70 hover:text-white transition-colors rounded-xl hover:bg-white/10"
+                        className="p-2 md:p-3 text-white/70 hover:text-white transition-colors rounded-xl hover:bg-white/10 min-w-[44px] min-h-[44px] md:min-w-[48px] md:min-h-[48px] flex items-center justify-center"
                         aria-label={t('settings')}
                     >
                         <SettingsIcon />

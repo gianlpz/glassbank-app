@@ -28,64 +28,66 @@ export function IDUpload({ onContinue, onBack }: IDUploadProps) {
     const canContinue = frontCaptured && backCaptured;
 
     return (
-        <div className="min-h-screen flex flex-col px-[var(--spacing-container)] py-8 fade-in">
+        <div className="min-h-screen flex flex-col px-4 sm:px-6 md:px-8 py-6 md:py-8 fade-in">
             {/* Background gradient effect */}
-            <div className="fixed inset-0 -z-10">
-                <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[400px] h-[400px] bg-primary rounded-full blur-[120px] opacity-20" />
+            <div className="fixed inset-0 -z-10 overflow-hidden">
+                <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[250px] md:w-[350px] lg:w-[400px] h-[250px] md:h-[350px] lg:h-[400px] bg-primary rounded-full blur-[80px] md:blur-[120px] opacity-20" />
             </div>
 
             {/* Header */}
-            <button
-                onClick={onBack}
-                className="self-start p-2 -ml-2 text-white/70 hover:text-white transition-colors rounded-xl hover:bg-white/10"
-                aria-label={t('back')}
-            >
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <polyline points="15 18 9 12 15 6"></polyline>
-                </svg>
-            </button>
+            <div className="w-full max-w-lg mx-auto">
+                <button
+                    onClick={onBack}
+                    className="self-start p-2 -ml-2 text-white/70 hover:text-white transition-colors rounded-xl hover:bg-white/10"
+                    aria-label={t('back')}
+                >
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <polyline points="15 18 9 12 15 6"></polyline>
+                    </svg>
+                </button>
 
-            {/* Progress indicator */}
-            <div className="flex gap-2 mt-4 mb-8">
-                <div className={cn(
-                    'h-1 flex-1 rounded-full',
-                    frontCaptured ? 'gradient-primary' : 'bg-white/20'
-                )} />
-                <div className={cn(
-                    'h-1 flex-1 rounded-full',
-                    backCaptured ? 'gradient-primary' : 'bg-white/20'
-                )} />
-            </div>
+                {/* Progress indicator */}
+                <div className="flex gap-2 mt-4 mb-6 md:mb-8">
+                    <div className={cn(
+                        'h-1 flex-1 rounded-full',
+                        frontCaptured ? 'gradient-primary' : 'bg-white/20'
+                    )} />
+                    <div className={cn(
+                        'h-1 flex-1 rounded-full',
+                        backCaptured ? 'gradient-primary' : 'bg-white/20'
+                    )} />
+                </div>
 
-            {/* Title */}
-            <div className="mb-8 slide-up">
-                <h1 className="text-2xl font-bold text-white mb-2">{t('uploadID')}</h1>
-                <p className="text-white/60">
-                    {currentSide === 'front' ? t('frontOfID') : t('backOfID')}
-                </p>
+                {/* Title */}
+                <div className="mb-6 md:mb-8 slide-up">
+                    <h1 className="text-xl md:text-2xl font-bold text-white mb-2">{t('uploadID')}</h1>
+                    <p className="text-white/60 text-sm md:text-base">
+                        {currentSide === 'front' ? t('frontOfID') : t('backOfID')}
+                    </p>
+                </div>
             </div>
 
             {/* Camera Frame */}
-            <div className="flex-1 flex flex-col items-center justify-center slide-up">
+            <div className="flex-1 flex flex-col items-center justify-center slide-up w-full max-w-lg mx-auto">
                 <GlassCard variant="strong" className="w-full aspect-[1.6] relative overflow-hidden">
                     {/* Corner guides */}
-                    <div className="absolute inset-4">
+                    <div className="absolute inset-2 md:inset-4">
                         {/* Top left */}
-                        <div className="absolute top-0 left-0 w-8 h-8 border-l-2 border-t-2 border-primary rounded-tl-lg" />
+                        <div className="absolute top-0 left-0 w-6 h-6 md:w-8 md:h-8 border-l-2 border-t-2 border-primary rounded-tl-lg" />
                         {/* Top right */}
-                        <div className="absolute top-0 right-0 w-8 h-8 border-r-2 border-t-2 border-primary rounded-tr-lg" />
+                        <div className="absolute top-0 right-0 w-6 h-6 md:w-8 md:h-8 border-r-2 border-t-2 border-primary rounded-tr-lg" />
                         {/* Bottom left */}
-                        <div className="absolute bottom-0 left-0 w-8 h-8 border-l-2 border-b-2 border-primary rounded-bl-lg" />
+                        <div className="absolute bottom-0 left-0 w-6 h-6 md:w-8 md:h-8 border-l-2 border-b-2 border-primary rounded-bl-lg" />
                         {/* Bottom right */}
-                        <div className="absolute bottom-0 right-0 w-8 h-8 border-r-2 border-b-2 border-primary rounded-br-lg" />
+                        <div className="absolute bottom-0 right-0 w-6 h-6 md:w-8 md:h-8 border-r-2 border-b-2 border-primary rounded-br-lg" />
                     </div>
 
                     {/* Captured state */}
                     {((currentSide === 'front' && frontCaptured) ||
                         (currentSide === 'back' && backCaptured)) ? (
                         <div className="absolute inset-0 flex items-center justify-center bg-green-500/20">
-                            <div className="w-16 h-16 rounded-full bg-green-500/30 flex items-center justify-center">
-                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#22C55E" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                            <div className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-green-500/30 flex items-center justify-center">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#22C55E" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="md:w-8 md:h-8">
                                     <polyline points="20 6 9 17 4 12"></polyline>
                                 </svg>
                             </div>
@@ -93,52 +95,52 @@ export function IDUpload({ onContinue, onBack }: IDUploadProps) {
                     ) : (
                         <div className="absolute inset-0 flex items-center justify-center">
                             <div className="text-center">
-                                <div className="w-16 h-16 rounded-full glass-button flex items-center justify-center mx-auto mb-4">
-                                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                <div className="w-12 h-12 md:w-16 md:h-16 rounded-full glass-button flex items-center justify-center mx-auto mb-3 md:mb-4">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="md:w-8 md:h-8">
                                         <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
                                         <circle cx="8.5" cy="8.5" r="1.5"></circle>
                                         <polyline points="21 15 16 10 5 21"></polyline>
                                     </svg>
                                 </div>
-                                <p className="text-white/60 text-sm">Position your ID within the frame</p>
+                                <p className="text-white/60 text-xs md:text-sm px-4">Position your ID within the frame</p>
                             </div>
                         </div>
                     )}
                 </GlassCard>
 
                 {/* Side indicators */}
-                <div className="flex gap-4 mt-6">
+                <div className="flex flex-wrap justify-center gap-2 md:gap-4 mt-4 md:mt-6">
                     <div className={cn(
-                        'flex items-center gap-2 px-4 py-2 rounded-full transition-all',
+                        'flex items-center gap-1.5 md:gap-2 px-3 md:px-4 py-1.5 md:py-2 rounded-full transition-all',
                         currentSide === 'front' ? 'glass-card-strong' : 'opacity-50'
                     )}>
                         {frontCaptured ? (
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22C55E" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#22C55E" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="md:w-4 md:h-4">
                                 <polyline points="20 6 9 17 4 12"></polyline>
                             </svg>
                         ) : (
-                            <div className="w-4 h-4 rounded-full border-2 border-white/40" />
+                            <div className="w-3 h-3 md:w-4 md:h-4 rounded-full border-2 border-white/40" />
                         )}
-                        <span className="text-white text-sm">{t('frontOfID')}</span>
+                        <span className="text-white text-xs md:text-sm">{t('frontOfID')}</span>
                     </div>
                     <div className={cn(
-                        'flex items-center gap-2 px-4 py-2 rounded-full transition-all',
+                        'flex items-center gap-1.5 md:gap-2 px-3 md:px-4 py-1.5 md:py-2 rounded-full transition-all',
                         currentSide === 'back' ? 'glass-card-strong' : 'opacity-50'
                     )}>
                         {backCaptured ? (
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22C55E" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#22C55E" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="md:w-4 md:h-4">
                                 <polyline points="20 6 9 17 4 12"></polyline>
                             </svg>
                         ) : (
-                            <div className="w-4 h-4 rounded-full border-2 border-white/40" />
+                            <div className="w-3 h-3 md:w-4 md:h-4 rounded-full border-2 border-white/40" />
                         )}
-                        <span className="text-white text-sm">{t('backOfID')}</span>
+                        <span className="text-white text-xs md:text-sm">{t('backOfID')}</span>
                     </div>
                 </div>
             </div>
 
             {/* Capture/Continue Button */}
-            <div className="mt-8 slide-up">
+            <div className="mt-6 md:mt-8 slide-up w-full max-w-lg mx-auto">
                 {canContinue ? (
                     <GlassButton
                         variant="primary"

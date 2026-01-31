@@ -86,7 +86,7 @@ function AppContent() {
   };
 
   return (
-    <div className="max-w-[430px] mx-auto min-h-screen bg-background relative">
+    <div className="w-full md:max-w-[600px] lg:max-w-[800px] mx-auto min-h-screen bg-background relative">
       <Routes>
         {/* Onboarding */}
         <Route path="/" element={<OnboardingFlow />} />

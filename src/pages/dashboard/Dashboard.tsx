@@ -73,48 +73,48 @@ export function Dashboard({ onNavigate, currentPath }: DashboardProps) {
                 onSettings={() => onNavigate('/more')}
             />
 
-            <main className="flex-1 px-[var(--spacing-container)] space-y-[var(--spacing-section)] overflow-y-auto no-scrollbar">
+            <main className="flex-1 px-4 md:px-6 lg:px-8 space-y-4 md:space-y-6 lg:space-y-8 overflow-y-auto no-scrollbar">
                 {/* Balance Card */}
-                <GlassCard variant="gradient" className="slide-up">
-                    <p className="text-white/70 text-sm mb-1">{t('balance')}</p>
+                <GlassCard variant="gradient" className="slide-up p-4 md:p-6 lg:p-8">
+                    <p className="text-white/70 text-sm md:text-base mb-1 md:mb-2">{t('balance')}</p>
                     <h2 className={cn(
-                        'text-4xl font-bold text-white mb-4',
-                        isSimplified && 'text-5xl'
+                        'text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 md:mb-6',
+                        isSimplified && 'text-5xl md:text-6xl lg:text-7xl'
                     )}>
                         £{balance.toLocaleString('en-GB', { minimumFractionDigits: 2 })}
                     </h2>
 
                     {/* Spending progress */}
-                    <div className="mt-4">
-                        <div className="flex justify-between text-sm mb-2">
+                    <div className="mt-4 md:mt-6">
+                        <div className="flex justify-between text-sm md:text-base mb-2 md:mb-3">
                             <span className="text-white/70">{t('thisMonth')} {t('spending')}</span>
                             <span className="text-white">£{spent.toFixed(0)} / £{budget.toFixed(0)}</span>
                         </div>
-                        <div className="h-2 bg-white/20 rounded-full overflow-hidden">
+                        <div className="h-2 md:h-3 bg-white/20 rounded-full overflow-hidden">
                             <div
                                 className="h-full bg-white rounded-full transition-all duration-500"
                                 style={{ width: `${Math.min(spendingPercentage, 100)}%` }}
                             />
                         </div>
-                        <p className="text-white/60 text-sm mt-2">
+                        <p className="text-white/60 text-sm md:text-base mt-2 md:mt-3">
                             £{(budget - spent).toFixed(0)} {t('remaining')}
                         </p>
                     </div>
                 </GlassCard>
 
-                {/* Quick Actions - Standard Mode uses 2x2 grid */}
+                {/* Quick Actions - Standard Mode uses responsive grid */}
                 {!isSimplified && (
-                    <div className="grid grid-cols-2 gap-3 slide-up" style={{ animationDelay: '0.1s' }}>
+                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 md:gap-4 slide-up" style={{ animationDelay: '0.1s' }}>
                         {quickActions.map((action) => (
                             <GlassCard
                                 key={action.id}
-                                className="flex flex-col items-center justify-center py-6 cursor-pointer hover:bg-white/15 transition-colors"
+                                className="flex flex-col items-center justify-center py-6 md:py-8 lg:py-10 px-2 md:px-4 cursor-pointer hover:bg-white/15 transition-colors"
                                 onClick={() => console.log(action.id)}
                             >
-                                <div className="w-12 h-12 rounded-full gradient-primary flex items-center justify-center mb-3">
-                                    <span className="text-white">{action.icon}</span>
+                                <div className="w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 rounded-full gradient-primary flex items-center justify-center mb-3 md:mb-4">
+                                    <span className="text-white [&>svg]:w-6 [&>svg]:h-6 md:[&>svg]:w-7 md:[&>svg]:h-7 lg:[&>svg]:w-8 lg:[&>svg]:h-8">{action.icon}</span>
                                 </div>
-                                <span className="text-white text-sm font-medium">{action.label}</span>
+                                <span className="text-white text-sm md:text-base lg:text-lg font-medium text-center">{action.label}</span>
                             </GlassCard>
                         ))}
                     </div>
@@ -122,19 +122,19 @@ export function Dashboard({ onNavigate, currentPath }: DashboardProps) {
 
                 {/* Quick Actions - Simplified Mode uses stacked buttons */}
                 {isSimplified && (
-                    <div className="space-y-3 slide-up" style={{ animationDelay: '0.1s' }}>
+                    <div className="space-y-3 md:space-y-4 slide-up" style={{ animationDelay: '0.1s' }}>
                         {quickActions.slice(0, 3).map((action) => (
                             <GlassButton
                                 key={action.id}
                                 variant="glass"
                                 size="lg"
-                                className="w-full justify-start gap-4"
+                                className="w-full justify-start gap-4 md:gap-6 py-4 md:py-5 lg:py-6"
                                 onClick={() => console.log(action.id)}
                             >
-                                <div className="w-12 h-12 rounded-xl gradient-primary flex items-center justify-center">
+                                <div className="w-12 h-12 md:w-14 md:h-14 rounded-xl gradient-primary flex items-center justify-center">
                                     {action.icon}
                                 </div>
-                                <span className="text-lg">{action.label}</span>
+                                <span className="text-lg md:text-xl">{action.label}</span>
                             </GlassButton>
                         ))}
                     </div>
@@ -142,15 +142,15 @@ export function Dashboard({ onNavigate, currentPath }: DashboardProps) {
 
                 {/* Recent Transactions */}
                 <div className="slide-up" style={{ animationDelay: '0.2s' }}>
-                    <div className="flex justify-between items-center mb-4">
+                    <div className="flex justify-between items-center mb-4 md:mb-6">
                         <h3 className={cn(
-                            'text-lg font-semibold text-white',
-                            isSimplified && 'text-xl'
+                            'text-lg md:text-xl lg:text-2xl font-semibold text-white',
+                            isSimplified && 'text-xl md:text-2xl'
                         )}>
                             {t('recentTransactions')}
                         </h3>
                         <button
-                            className="text-primary text-sm font-medium"
+                            className="text-primary text-sm md:text-base font-medium"
                             onClick={() => onNavigate('/transactions')}
                         >
                             {t('seeAll')}
@@ -162,24 +162,24 @@ export function Dashboard({ onNavigate, currentPath }: DashboardProps) {
                             <div
                                 key={tx.id}
                                 className={cn(
-                                    'flex items-center gap-4 py-[var(--spacing-list-item)] px-[var(--spacing-card)] cursor-pointer hover:bg-white/5 transition-colors',
-                                    isSimplified && 'py-6'
+                                    'flex items-center gap-4 md:gap-6 py-3 md:py-4 lg:py-5 px-4 md:px-6 cursor-pointer hover:bg-white/5 transition-colors',
+                                    isSimplified && 'py-6 md:py-7'
                                 )}
                                 onClick={() => onNavigate(`/transactions/${tx.id}`)}
                             >
-                                <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-xl">
+                                <div className="w-10 h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 rounded-full bg-white/10 flex items-center justify-center text-xl md:text-2xl lg:text-3xl">
                                     {tx.icon}
                                 </div>
                                 <div className="flex-1 min-w-0">
-                                    <p className={cn('text-white font-medium truncate', isSimplified && 'text-lg')}>
+                                    <p className={cn('text-white font-medium truncate md:text-lg', isSimplified && 'text-lg md:text-xl')}>
                                         {tx.merchant}
                                     </p>
-                                    <p className="text-white/50 text-sm">{tx.category} · {tx.date}</p>
+                                    <p className="text-white/50 text-sm md:text-base">{tx.category} · {tx.date}</p>
                                 </div>
                                 <span className={cn(
-                                    'text-white font-semibold',
+                                    'text-white font-semibold md:text-lg lg:text-xl',
                                     tx.amount < 0 ? 'text-white' : 'text-green-400',
-                                    isSimplified && 'text-lg'
+                                    isSimplified && 'text-lg md:text-xl'
                                 )}>
                                     {tx.amount < 0 ? '-' : '+'}£{Math.abs(tx.amount).toFixed(2)}
                                 </span>

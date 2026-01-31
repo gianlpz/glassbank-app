@@ -12,11 +12,11 @@ export function LanguageSelect({ onContinue, onBack }: LanguageSelectProps) {
     const { language, setLanguage, t } = useLanguage();
 
     return (
-        <div className="min-h-screen flex flex-col px-[var(--spacing-container)] py-8 fade-in">
+        <div className="min-h-screen flex flex-col px-4 sm:px-6 md:px-8 py-6 md:py-8 fade-in">
             {/* Background gradient effect */}
-            <div className="fixed inset-0 -z-10">
-                <div className="absolute top-20 left-0 w-[300px] h-[300px] bg-primary rounded-full blur-[100px] opacity-20" />
-                <div className="absolute bottom-40 right-0 w-[250px] h-[250px] bg-accent rounded-full blur-[100px] opacity-15" />
+            <div className="fixed inset-0 -z-10 overflow-hidden">
+                <div className="absolute top-20 left-0 w-[200px] md:w-[300px] h-[200px] md:h-[300px] bg-primary rounded-full blur-[80px] md:blur-[100px] opacity-20" />
+                <div className="absolute bottom-40 right-0 w-[180px] md:w-[250px] h-[180px] md:h-[250px] bg-accent rounded-full blur-[80px] md:blur-[100px] opacity-15" />
             </div>
 
             {/* Header */}
@@ -31,15 +31,15 @@ export function LanguageSelect({ onContinue, onBack }: LanguageSelectProps) {
             </button>
 
             {/* Content */}
-            <div className="flex-1 flex flex-col justify-center py-8">
+            <div className="flex-1 flex flex-col justify-center py-6 md:py-8 w-full max-w-md mx-auto">
                 {/* Title */}
-                <div className="mb-8 slide-up">
-                    <h1 className="text-2xl font-bold text-white mb-2">{t('selectLanguage')}</h1>
-                    <p className="text-white/60">Choose your preferred language</p>
+                <div className="mb-6 md:mb-8 slide-up">
+                    <h1 className="text-xl md:text-2xl font-bold text-white mb-2">{t('selectLanguage')}</h1>
+                    <p className="text-white/60 text-sm md:text-base">Choose your preferred language</p>
                 </div>
 
                 {/* Language Options */}
-                <div className="space-y-3">
+                <div className="space-y-2 md:space-y-3">
                     {SUPPORTED_LANGUAGES.map((lang, index) => (
                         <button
                             key={lang.code}
@@ -52,17 +52,17 @@ export function LanguageSelect({ onContinue, onBack }: LanguageSelectProps) {
                             <GlassCard
                                 variant={language === lang.code ? 'strong' : 'default'}
                                 className={cn(
-                                    'flex items-center gap-4 transition-all duration-200',
+                                    'flex items-center gap-3 md:gap-4 transition-all duration-200',
                                     language === lang.code && 'ring-2 ring-primary border-primary/50'
                                 )}
                             >
-                                <span className="text-3xl">{lang.flag}</span>
+                                <span className="text-2xl md:text-3xl">{lang.flag}</span>
                                 <div className="flex-1 text-left">
-                                    <span className="text-white font-medium text-lg">{lang.name}</span>
+                                    <span className="text-white font-medium text-base md:text-lg">{lang.name}</span>
                                 </div>
                                 {language === lang.code && (
-                                    <div className="w-6 h-6 rounded-full gradient-primary flex items-center justify-center">
-                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                                    <div className="w-5 h-5 md:w-6 md:h-6 rounded-full gradient-primary flex items-center justify-center">
+                                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="md:w-[14px] md:h-[14px]">
                                             <polyline points="20 6 9 17 4 12"></polyline>
                                         </svg>
                                     </div>
@@ -74,7 +74,7 @@ export function LanguageSelect({ onContinue, onBack }: LanguageSelectProps) {
             </div>
 
             {/* Continue Button */}
-            <div className="slide-up" style={{ animationDelay: '0.4s' }}>
+            <div className="slide-up w-full max-w-md mx-auto" style={{ animationDelay: '0.4s' }}>
                 <GlassButton
                     variant="primary"
                     size="lg"

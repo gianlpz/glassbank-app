@@ -67,31 +67,33 @@ export function AccountSetup({ onComplete, onBack }: AccountSetupProps) {
     const isComplete = currentPin.every(d => d !== '');
 
     return (
-        <div className="min-h-screen flex flex-col px-[var(--spacing-container)] py-8 fade-in">
+        <div className="min-h-screen flex flex-col px-4 sm:px-6 md:px-8 py-6 md:py-8 fade-in">
             {/* Background gradient effect */}
-            <div className="fixed inset-0 -z-10">
-                <div className="absolute top-1/4 right-0 w-[300px] h-[300px] bg-primary rounded-full blur-[100px] opacity-20" />
-                <div className="absolute bottom-1/4 left-0 w-[250px] h-[250px] bg-accent rounded-full blur-[100px] opacity-15" />
+            <div className="fixed inset-0 -z-10 overflow-hidden">
+                <div className="absolute top-1/4 right-0 w-[200px] md:w-[300px] h-[200px] md:h-[300px] bg-primary rounded-full blur-[80px] md:blur-[100px] opacity-20" />
+                <div className="absolute bottom-1/4 left-0 w-[180px] md:w-[250px] h-[180px] md:h-[250px] bg-accent rounded-full blur-[80px] md:blur-[100px] opacity-15" />
             </div>
 
             {/* Header */}
-            <button
-                onClick={step === 'confirm' ? () => setStep('create') : onBack}
-                className="self-start p-2 -ml-2 text-white/70 hover:text-white transition-colors rounded-xl hover:bg-white/10"
-                aria-label={t('back')}
-            >
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <polyline points="15 18 9 12 15 6"></polyline>
-                </svg>
-            </button>
+            <div className="w-full max-w-md mx-auto">
+                <button
+                    onClick={step === 'confirm' ? () => setStep('create') : onBack}
+                    className="self-start p-2 -ml-2 text-white/70 hover:text-white transition-colors rounded-xl hover:bg-white/10"
+                    aria-label={t('back')}
+                >
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <polyline points="15 18 9 12 15 6"></polyline>
+                    </svg>
+                </button>
+            </div>
 
-            <div className="flex-1 flex flex-col justify-center">
+            <div className="flex-1 flex flex-col justify-center w-full max-w-md mx-auto">
                 {/* Title */}
-                <div className="mb-12 slide-up">
-                    <h1 className="text-2xl font-bold text-white mb-2">
+                <div className="mb-8 md:mb-12 slide-up">
+                    <h1 className="text-xl md:text-2xl font-bold text-white mb-2">
                         {step === 'create' ? t('createPin') : t('confirmPin')}
                     </h1>
-                    <p className="text-white/60">
+                    <p className="text-white/60 text-sm md:text-base">
                         {step === 'create'
                             ? 'Create a 4-digit PIN to secure your account'
                             : 'Enter your PIN again to confirm'}
@@ -99,7 +101,7 @@ export function AccountSetup({ onComplete, onBack }: AccountSetupProps) {
                 </div>
 
                 {/* PIN Input */}
-                <div className="flex justify-center gap-4 slide-up">
+                <div className="flex justify-center gap-3 md:gap-4 slide-up">
                     {[0, 1, 2, 3].map((index) => (
                         <div key={index} className="relative">
                             <input
@@ -111,8 +113,8 @@ export function AccountSetup({ onComplete, onBack }: AccountSetupProps) {
                                 onChange={(e) => handlePinInput(index, e.target.value)}
                                 onKeyDown={(e) => handleKeyDown(index, e)}
                                 className={cn(
-                                    'w-14 h-16 text-center text-2xl font-bold',
-                                    'glass-input rounded-xl text-white',
+                                    'w-12 h-14 md:w-14 md:h-16 text-center text-xl md:text-2xl font-bold',
+                                    'glass-input rounded-lg md:rounded-xl text-white',
                                     'focus:ring-2 focus:ring-primary',
                                     currentPin[index] && 'border-primary/50'
                                 )}
@@ -120,7 +122,7 @@ export function AccountSetup({ onComplete, onBack }: AccountSetupProps) {
                             />
                             {currentPin[index] && (
                                 <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                                    <div className="w-3 h-3 rounded-full bg-white" />
+                                    <div className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-white" />
                                 </div>
                             )}
                         </div>
@@ -129,12 +131,12 @@ export function AccountSetup({ onComplete, onBack }: AccountSetupProps) {
 
                 {/* Error message */}
                 {error && (
-                    <p className="text-red-400 text-center mt-6 slide-up">{error}</p>
+                    <p className="text-red-400 text-center mt-4 md:mt-6 slide-up text-sm md:text-base">{error}</p>
                 )}
             </div>
 
             {/* Continue Button */}
-            <div className="slide-up">
+            <div className="slide-up w-full max-w-md mx-auto">
                 <GlassButton
                     variant="primary"
                     size="lg"
