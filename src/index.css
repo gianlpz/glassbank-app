@@ -1,0 +1,259 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* GlassBank Custom Theme */
+@theme inline {
+  /* Radius Scale */
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+
+  /* Color System */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  /* GlassBank Custom Colors */
+  --color-glass-purple: #7B3FF2;
+  --color-glass-pink: #EC4899;
+  --color-glass-light: rgba(255, 255, 255, 0.15);
+  --color-glass-purple-light: rgba(123, 63, 242, 0.08);
+}
+
+/* GlassBank Dark Theme - Default */
+:root {
+  --radius: 1rem;
+
+  /* Dark theme as default for GlassBank */
+  --background: #1E1E1E;
+  --foreground: #FFFFFF;
+
+  --card: rgba(255, 255, 255, 0.08);
+  --card-foreground: #FFFFFF;
+
+  --popover: rgba(30, 30, 30, 0.95);
+  --popover-foreground: #FFFFFF;
+
+  /* GlassBank Purple Primary */
+  --primary: #7B3FF2;
+  --primary-foreground: #FFFFFF;
+
+  --secondary: rgba(255, 255, 255, 0.1);
+  --secondary-foreground: #FFFFFF;
+
+  --muted: rgba(255, 255, 255, 0.05);
+  --muted-foreground: #999999;
+
+  /* GlassBank Pink Accent */
+  --accent: #EC4899;
+  --accent-foreground: #FFFFFF;
+
+  --destructive: #EF4444;
+
+  --border: rgba(255, 255, 255, 0.15);
+  --input: rgba(255, 255, 255, 0.1);
+  --ring: #7B3FF2;
+
+  --chart-1: #7B3FF2;
+  --chart-2: #EC4899;
+  --chart-3: #A855F7;
+  --chart-4: #6366F1;
+  --chart-5: #8B5CF6;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    min-height: 100vh;
+    min-height: 100dvh;
+  }
+
+  #root {
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+/* GlassBank Glassmorphic Utilities */
+@layer utilities {
+
+  /* Glass Card Effect */
+  .glass-card {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 1rem;
+  }
+
+  .glass-card-strong {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 1rem;
+  }
+
+  /* Purple-Pink Gradient */
+  .gradient-primary {
+    background: linear-gradient(135deg, #7B3FF2 0%, #EC4899 100%);
+  }
+
+  .gradient-primary-soft {
+    background: linear-gradient(135deg, rgba(123, 63, 242, 0.2) 0%, rgba(236, 72, 153, 0.2) 100%);
+  }
+
+  /* Balance Card Gradient */
+  .balance-card {
+    background: linear-gradient(135deg, #7B3FF2 0%, #A855F7 50%, #EC4899 100%);
+    border-radius: 1.25rem;
+  }
+
+  /* Text Gradients */
+  .text-gradient-primary {
+    background: linear-gradient(135deg, #7B3FF2 0%, #EC4899 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Glass Button */
+  .glass-button {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    transition: all 0.2s ease;
+  }
+
+  .glass-button:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.25);
+  }
+
+  .glass-button:active {
+    transform: scale(0.98);
+  }
+
+  /* Glass Input */
+  .glass-input {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    transition: all 0.2s ease;
+  }
+
+  .glass-input:focus {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: #7B3FF2;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(123, 63, 242, 0.2);
+  }
+
+  /* Safe area padding for mobile */
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
+  .safe-top {
+    padding-top: env(safe-area-inset-top, 0px);
+  }
+
+  /* Simplified Mode - Larger Text */
+  .simplified-mode {
+    font-size: 1.125rem;
+    line-height: 1.6;
+  }
+
+  .simplified-mode .text-balance {
+    font-size: 2.5rem;
+  }
+
+  .simplified-mode button,
+  .simplified-mode a {
+    min-height: 56px;
+    font-size: 1.125rem;
+  }
+
+  /* Animations */
+  .fade-in {
+    animation: fadeIn 0.3s ease-out;
+  }
+
+  .slide-up {
+    animation: slideUp 0.4s ease-out;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Hide scrollbar but keep functionality */
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Mobile viewport optimizations */
+@media (max-width: 430px) {
+  :root {
+    --radius: 0.875rem;
+  }
+}
