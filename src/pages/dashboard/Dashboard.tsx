@@ -73,9 +73,9 @@ export function Dashboard({ onNavigate, currentPath }: DashboardProps) {
                 onSettings={() => onNavigate('/more')}
             />
 
-            <main className="flex-1 px-4 space-y-6 overflow-y-auto no-scrollbar">
+            <main className="flex-1 px-[var(--spacing-container)] space-y-[var(--spacing-section)] overflow-y-auto no-scrollbar">
                 {/* Balance Card */}
-                <GlassCard variant="gradient" className="p-6 slide-up">
+                <GlassCard variant="gradient" className="slide-up">
                     <p className="text-white/70 text-sm mb-1">{t('balance')}</p>
                     <h2 className={cn(
                         'text-4xl font-bold text-white mb-4',
@@ -108,7 +108,7 @@ export function Dashboard({ onNavigate, currentPath }: DashboardProps) {
                         {quickActions.map((action) => (
                             <GlassCard
                                 key={action.id}
-                                className="flex flex-col items-center justify-center py-5 cursor-pointer hover:bg-white/15 transition-colors"
+                                className="flex flex-col items-center justify-center py-6 cursor-pointer hover:bg-white/15 transition-colors"
                                 onClick={() => console.log(action.id)}
                             >
                                 <div className="w-12 h-12 rounded-full gradient-primary flex items-center justify-center mb-3">
@@ -150,20 +150,20 @@ export function Dashboard({ onNavigate, currentPath }: DashboardProps) {
                             {t('recentTransactions')}
                         </h3>
                         <button
-                            className="text-[#7B3FF2] text-sm font-medium"
+                            className="text-primary text-sm font-medium"
                             onClick={() => onNavigate('/transactions')}
                         >
                             {t('seeAll')}
                         </button>
                     </div>
 
-                    <GlassCard className="divide-y divide-white/10">
+                    <GlassCard className="divide-y divide-white/10 p-0 overflow-hidden">
                         {mockTransactions.map((tx) => (
                             <div
                                 key={tx.id}
                                 className={cn(
-                                    'flex items-center gap-4 py-3 cursor-pointer hover:bg-white/5 transition-colors -mx-4 px-4 first:-mt-4 first:pt-4 last:-mb-4 last:pb-4',
-                                    isSimplified && 'py-4'
+                                    'flex items-center gap-4 py-[var(--spacing-list-item)] px-[var(--spacing-card)] cursor-pointer hover:bg-white/5 transition-colors',
+                                    isSimplified && 'py-6'
                                 )}
                                 onClick={() => onNavigate(`/transactions/${tx.id}`)}
                             >

@@ -15,7 +15,7 @@ export function GlassCard({
     return (
         <div
             className={cn(
-                'rounded-xl p-4 transition-all duration-200',
+                'rounded-xl p-[var(--spacing-card)] transition-all duration-200',
                 variant === 'default' && 'glass-card',
                 variant === 'strong' && 'glass-card-strong',
                 variant === 'gradient' && 'balance-card text-white',

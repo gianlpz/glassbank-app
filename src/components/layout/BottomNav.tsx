@@ -95,20 +95,20 @@ export function BottomNav({ currentPath, onNavigate }: BottomNavProps) {
                         >
                             <span className={cn(
                                 'transition-all duration-200',
-                                isActive && 'text-[#7B3FF2]',
+                                isActive && 'text-primary',
                                 isSimplified && 'scale-125'
                             )}>
                                 {item.icon}
                             </span>
                             <span className={cn(
                                 'text-xs font-medium',
-                                isActive && 'text-[#7B3FF2]',
+                                isActive && 'text-primary',
                                 isSimplified && 'text-sm'
                             )}>
                                 {t(item.labelKey)}
                             </span>
                             {isActive && (
-                                <div className="w-1 h-1 rounded-full bg-[#7B3FF2] mt-0.5" />
+                                <div className="w-1 h-1 rounded-full bg-primary mt-0.5" />
                             )}
                         </button>
                     );

@@ -12,11 +12,11 @@ export function LanguageSelect({ onContinue, onBack }: LanguageSelectProps) {
     const { language, setLanguage, t } = useLanguage();
 
     return (
-        <div className="min-h-screen flex flex-col px-6 py-8 fade-in">
+        <div className="min-h-screen flex flex-col px-[var(--spacing-container)] py-8 fade-in">
             {/* Background gradient effect */}
             <div className="fixed inset-0 -z-10">
-                <div className="absolute top-20 left-0 w-[300px] h-[300px] bg-[#7B3FF2] rounded-full blur-[100px] opacity-20" />
-                <div className="absolute bottom-40 right-0 w-[250px] h-[250px] bg-[#EC4899] rounded-full blur-[100px] opacity-15" />
+                <div className="absolute top-20 left-0 w-[300px] h-[300px] bg-primary rounded-full blur-[100px] opacity-20" />
+                <div className="absolute bottom-40 right-0 w-[250px] h-[250px] bg-accent rounded-full blur-[100px] opacity-15" />
             </div>
 
             {/* Header */}
@@ -53,7 +53,7 @@ export function LanguageSelect({ onContinue, onBack }: LanguageSelectProps) {
                                 variant={language === lang.code ? 'strong' : 'default'}
                                 className={cn(
                                     'flex items-center gap-4 transition-all duration-200',
-                                    language === lang.code && 'ring-2 ring-[#7B3FF2] border-[#7B3FF2]/50'
+                                    language === lang.code && 'ring-2 ring-primary border-primary/50'
                                 )}
                             >
                                 <span className="text-3xl">{lang.flag}</span>

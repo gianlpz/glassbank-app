@@ -35,10 +35,10 @@ export function Verification({ onComplete }: VerificationProps) {
     }, [onComplete]);
 
     return (
-        <div className="min-h-screen flex flex-col items-center justify-center px-6 py-8 fade-in">
+        <div className="min-h-screen flex flex-col items-center justify-center px-[var(--spacing-container)] py-8 fade-in">
             {/* Background gradient effect */}
             <div className="fixed inset-0 -z-10">
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[#7B3FF2] rounded-full blur-[150px] opacity-25" />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary rounded-full blur-[150px] opacity-25" />
             </div>
 
             {/* Loading Animation */}
@@ -60,8 +60,8 @@ export function Verification({ onComplete }: VerificationProps) {
                         />
                         <defs>
                             <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" stopColor="#7B3FF2" />
-                                <stop offset="100%" stopColor="#EC4899" />
+                                <stop offset="0%" stopColor="var(--color-glass-purple)" />
+                                <stop offset="100%" stopColor="var(--color-glass-pink)" />
                             </linearGradient>
                         </defs>
                     </svg>

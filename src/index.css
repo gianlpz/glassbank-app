@@ -44,6 +44,16 @@
   --color-glass-pink: #EC4899;
   --color-glass-light: rgba(255, 255, 255, 0.15);
   --color-glass-purple-light: rgba(123, 63, 242, 0.08);
+
+  /* Spacing System */
+  --spacing-container: 1.25rem;
+  --spacing-section: 1.5rem;
+  --spacing-card: 1rem;
+  --spacing-list-item: 1.125rem;
+
+  /* Background Blobs */
+  --blob-purple: rgba(123, 63, 242, 0.25);
+  --blob-pink: rgba(236, 72, 153, 0.15);
 }
 
 /* GlassBank Dark Theme - Default */

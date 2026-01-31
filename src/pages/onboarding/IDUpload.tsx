@@ -28,10 +28,10 @@ export function IDUpload({ onContinue, onBack }: IDUploadProps) {
     const canContinue = frontCaptured && backCaptured;
 
     return (
-        <div className="min-h-screen flex flex-col px-6 py-8 fade-in">
+        <div className="min-h-screen flex flex-col px-[var(--spacing-container)] py-8 fade-in">
             {/* Background gradient effect */}
             <div className="fixed inset-0 -z-10">
-                <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[400px] h-[400px] bg-[#7B3FF2] rounded-full blur-[120px] opacity-20" />
+                <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[400px] h-[400px] bg-primary rounded-full blur-[120px] opacity-20" />
             </div>
 
             {/* Header */}
@@ -71,13 +71,13 @@ export function IDUpload({ onContinue, onBack }: IDUploadProps) {
                     {/* Corner guides */}
                     <div className="absolute inset-4">
                         {/* Top left */}
-                        <div className="absolute top-0 left-0 w-8 h-8 border-l-2 border-t-2 border-[#7B3FF2] rounded-tl-lg" />
+                        <div className="absolute top-0 left-0 w-8 h-8 border-l-2 border-t-2 border-primary rounded-tl-lg" />
                         {/* Top right */}
-                        <div className="absolute top-0 right-0 w-8 h-8 border-r-2 border-t-2 border-[#7B3FF2] rounded-tr-lg" />
+                        <div className="absolute top-0 right-0 w-8 h-8 border-r-2 border-t-2 border-primary rounded-tr-lg" />
                         {/* Bottom left */}
-                        <div className="absolute bottom-0 left-0 w-8 h-8 border-l-2 border-b-2 border-[#7B3FF2] rounded-bl-lg" />
+                        <div className="absolute bottom-0 left-0 w-8 h-8 border-l-2 border-b-2 border-primary rounded-bl-lg" />
                         {/* Bottom right */}
-                        <div className="absolute bottom-0 right-0 w-8 h-8 border-r-2 border-b-2 border-[#7B3FF2] rounded-br-lg" />
+                        <div className="absolute bottom-0 right-0 w-8 h-8 border-r-2 border-b-2 border-primary rounded-br-lg" />
                     </div>
 
                     {/* Captured state */}

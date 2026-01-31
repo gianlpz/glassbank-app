@@ -67,11 +67,11 @@ export function AccountSetup({ onComplete, onBack }: AccountSetupProps) {
     const isComplete = currentPin.every(d => d !== '');
 
     return (
-        <div className="min-h-screen flex flex-col px-6 py-8 fade-in">
+        <div className="min-h-screen flex flex-col px-[var(--spacing-container)] py-8 fade-in">
             {/* Background gradient effect */}
             <div className="fixed inset-0 -z-10">
-                <div className="absolute top-1/4 right-0 w-[300px] h-[300px] bg-[#7B3FF2] rounded-full blur-[100px] opacity-20" />
-                <div className="absolute bottom-1/4 left-0 w-[250px] h-[250px] bg-[#EC4899] rounded-full blur-[100px] opacity-15" />
+                <div className="absolute top-1/4 right-0 w-[300px] h-[300px] bg-primary rounded-full blur-[100px] opacity-20" />
+                <div className="absolute bottom-1/4 left-0 w-[250px] h-[250px] bg-accent rounded-full blur-[100px] opacity-15" />
             </div>
 
             {/* Header */}
@@ -113,8 +113,8 @@ export function AccountSetup({ onComplete, onBack }: AccountSetupProps) {
                                 className={cn(
                                     'w-14 h-16 text-center text-2xl font-bold',
                                     'glass-input rounded-xl text-white',
-                                    'focus:ring-2 focus:ring-[#7B3FF2]',
-                                    currentPin[index] && 'border-[#7B3FF2]/50'
+                                    'focus:ring-2 focus:ring-primary',
+                                    currentPin[index] && 'border-primary/50'
                                 )}
                                 autoFocus={index === 0}
                             />

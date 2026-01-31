@@ -41,9 +41,9 @@ export function AutomationHub({ onNavigate, currentPath }: AutomationHubProps) {
                 onSettings={() => onNavigate('/more')}
             />
 
-            <main className="flex-1 px-4 space-y-6 overflow-y-auto no-scrollbar">
+            <main className="flex-1 px-[var(--spacing-container)] space-y-[var(--spacing-section)] overflow-y-auto no-scrollbar">
                 {/* Summary Card */}
-                <GlassCard variant="gradient" className="p-6 slide-up">
+                <GlassCard variant="gradient" className="slide-up">
                     <div className="flex items-center justify-between">
                         <div>
                             <p className="text-white/70 text-sm mb-1">Active Automations</p>
@@ -78,7 +78,7 @@ export function AutomationHub({ onNavigate, currentPath }: AutomationHubProps) {
                 </GlassButton>
 
                 {/* Automation List */}
-                <div className="space-y-3 slide-up" style={{ animationDelay: '0.2s' }}>
+                <div className="space-y-4 slide-up" style={{ animationDelay: '0.2s' }}>
                     {automations.map((automation) => (
                         <GlassCard
                             key={automation.id}
@@ -109,7 +109,7 @@ export function AutomationHub({ onNavigate, currentPath }: AutomationHubProps) {
                                         onClick={() => toggleAutomation(automation.id)}
                                         className={cn(
                                             'w-12 h-7 rounded-full transition-all duration-200 relative',
-                                            automation.active ? 'bg-[#7B3FF2]' : 'bg-white/20'
+                                            automation.active ? 'bg-primary' : 'bg-white/20'
                                         )}
                                         aria-label={`Toggle ${automation.name}`}
                                     >
@@ -171,7 +171,7 @@ export function CreateAutomation({ onBack, onComplete }: CreateAutomationProps) 
             />
 
             {/* Progress */}
-            <div className="px-4 mb-6">
+            <div className="px-[var(--spacing-container)] mb-6">
                 <div className="flex gap-2">
                     {[1, 2, 3].map(s => (
                         <div
@@ -185,10 +185,10 @@ export function CreateAutomation({ onBack, onComplete }: CreateAutomationProps) 
                 </div>
             </div>
 
-            <main className="flex-1 px-4">
+            <main className="flex-1 px-[var(--spacing-container)]">
                 {/* Step 1: Select Type */}
                 {step === 1 && (
-                    <div className="space-y-4 slide-up">
+                    <div className="space-y-[var(--spacing-list)] slide-up">
                         <h2 className="text-xl font-bold text-white mb-6">Choose automation type</h2>
                         {automationTypes.map(type => (
                             <button
@@ -198,7 +198,7 @@ export function CreateAutomation({ onBack, onComplete }: CreateAutomationProps) 
                             >
                                 <GlassCard className={cn(
                                     'flex items-center gap-4 transition-all',
-                                    automationType === type.id && 'ring-2 ring-[#7B3FF2]'
+                                    automationType === type.id && 'ring-2 ring-primary'
                                 )}>
                                     <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-2xl">
                                         {type.icon}

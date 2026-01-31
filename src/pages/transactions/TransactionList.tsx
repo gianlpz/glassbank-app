@@ -55,7 +55,7 @@ export function TransactionList({ onNavigate, currentPath }: TransactionListProp
                 onSettings={() => onNavigate('/more')}
             />
 
-            <main className="flex-1 px-4 space-y-4 overflow-y-auto no-scrollbar">
+            <main className="flex-1 px-[var(--spacing-container)] space-y-[var(--spacing-section)] overflow-y-auto no-scrollbar">
                 {/* Search */}
                 <div className="relative slide-up">
                     <input
@@ -93,17 +93,17 @@ export function TransactionList({ onNavigate, currentPath }: TransactionListProp
                 </div>
 
                 {/* Transaction Groups */}
-                <div className="space-y-6 slide-up" style={{ animationDelay: '0.2s' }}>
+                <div className="space-y-[var(--spacing-section)] slide-up" style={{ animationDelay: '0.2s' }}>
                     {Object.entries(groupedTransactions).map(([date, transactions]) => (
                         <div key={date}>
-                            <h3 className="text-white/50 text-sm font-medium mb-2">{date}</h3>
-                            <GlassCard className="divide-y divide-white/10">
+                            <h3 className="text-white/50 text-sm font-medium mb-3 uppercase tracking-wider">{date}</h3>
+                            <GlassCard className="divide-y divide-white/10 p-0 overflow-hidden">
                                 {transactions.map((tx) => (
                                     <div
                                         key={tx.id}
                                         className={cn(
-                                            'flex items-center gap-4 py-3 cursor-pointer hover:bg-white/5 transition-colors -mx-4 px-4 first:-mt-4 first:pt-4 last:-mb-4 last:pb-4',
-                                            isSimplified && 'py-4'
+                                            'flex items-center gap-4 py-[var(--spacing-list-item)] px-[var(--spacing-card)] cursor-pointer hover:bg-white/5 transition-colors',
+                                            isSimplified && 'py-6'
                                         )}
                                         onClick={() => onNavigate(`/transactions/${tx.id}`)}
                                     >

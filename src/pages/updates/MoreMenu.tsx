@@ -31,16 +31,16 @@ export function MoreMenu({ onNavigate, currentPath }: MoreMenuProps) {
                 showSettings={false}
             />
 
-            <main className="flex-1 px-4 space-y-6 overflow-y-auto no-scrollbar">
+            <main className="flex-1 px-[var(--spacing-container)] space-y-[var(--spacing-section)] overflow-y-auto no-scrollbar">
                 {/* Menu Items */}
-                <GlassCard className="divide-y divide-white/10 slide-up">
+                <GlassCard className="divide-y divide-white/10 slide-up p-0 overflow-hidden">
                     {menuItems.map((item) => (
                         <button
                             key={item.id}
                             onClick={() => item.path && onNavigate(item.path)}
                             className={cn(
-                                'flex items-center gap-4 py-4 w-full text-left -mx-4 px-4 first:-mt-4 first:pt-4 last:-mb-4 last:pb-4 hover:bg-white/5 transition-colors',
-                                isSimplified && 'py-5'
+                                'flex items-center gap-4 py-[var(--spacing-list-item)] w-full text-left px-[var(--spacing-card)] hover:bg-white/5 transition-colors',
+                                isSimplified && 'py-6'
                             )}
                         >
                             <span className="text-2xl">{item.icon}</span>
@@ -88,7 +88,7 @@ export function MoreMenu({ onNavigate, currentPath }: MoreMenuProps) {
                     <h3 className={cn('text-white/50 text-sm font-medium mb-3 px-1', isSimplified && 'text-base')}>
                         {t('language')}
                     </h3>
-                    <div className="grid grid-cols-2 gap-2">
+                    <div className="grid grid-cols-2 gap-[var(--spacing-list)]">
                         {SUPPORTED_LANGUAGES.map((lang) => (
                             <button
                                 key={lang.code}
@@ -98,7 +98,7 @@ export function MoreMenu({ onNavigate, currentPath }: MoreMenuProps) {
                                 <GlassCard
                                     className={cn(
                                         'flex items-center gap-3 py-3 transition-all',
-                                        language === lang.code && 'ring-2 ring-[#7B3FF2]'
+                                        language === lang.code && 'ring-2 ring-primary'
                                     )}
                                 >
                                     <span className="text-xl">{lang.flag}</span>

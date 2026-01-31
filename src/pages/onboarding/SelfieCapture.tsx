@@ -16,10 +16,10 @@ export function SelfieCapture({ onContinue, onBack }: SelfieCaptureProps) {
     };
 
     return (
-        <div className="min-h-screen flex flex-col px-6 py-8 fade-in">
+        <div className="min-h-screen flex flex-col px-[var(--spacing-container)] py-8 fade-in">
             {/* Background gradient effect */}
             <div className="fixed inset-0 -z-10">
-                <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[350px] h-[350px] bg-[#7B3FF2] rounded-full blur-[100px] opacity-20" />
+                <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[350px] h-[350px] bg-primary rounded-full blur-[100px] opacity-20" />
             </div>
 
             {/* Header */}
@@ -65,7 +65,7 @@ export function SelfieCapture({ onContinue, onBack }: SelfieCaptureProps) {
 
                         {/* Animated ring when not captured */}
                         {!captured && (
-                            <div className="absolute inset-0 rounded-full border-4 border-[#7B3FF2] animate-pulse" />
+                            <div className="absolute inset-0 rounded-full border-4 border-primary animate-pulse" />
                         )}
                     </div>
 

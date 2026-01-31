@@ -10,11 +10,11 @@ export function Welcome({ onGetStarted }: WelcomeProps) {
     const { t } = useLanguage();
 
     return (
-        <div className="min-h-screen flex flex-col items-center justify-between px-6 py-12 fade-in">
+        <div className="min-h-screen flex flex-col items-center justify-between px-[var(--spacing-container)] py-12 fade-in">
             {/* Background gradient effect */}
             <div className="fixed inset-0 -z-10">
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-[#7B3FF2] rounded-full blur-[150px] opacity-30" />
-                <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-[#EC4899] rounded-full blur-[120px] opacity-20" />
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-primary rounded-full blur-[150px] opacity-30" />
+                <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-accent rounded-full blur-[120px] opacity-20" />
             </div>
 
             {/* Spacer */}
