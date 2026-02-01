@@ -130,9 +130,9 @@
   }
 
   .glass-card-strong {
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(60px);
-    -webkit-backdrop-filter: blur(60px);
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 1rem;
   }
@@ -652,8 +652,8 @@
     }
 
     .glass-card-strong {
-      backdrop-filter: blur(60px);
-      -webkit-backdrop-filter: blur(60px);
+      backdrop-filter: blur(32px);
+      -webkit-backdrop-filter: blur(32px);
     }
   }
 
@@ -664,8 +664,8 @@
     }
 
     .glass-card-strong {
-      backdrop-filter: blur(60px);
-      -webkit-backdrop-filter: blur(60px);
+      backdrop-filter: blur(40px);
+      -webkit-backdrop-filter: blur(40px);
     }
   }
 
