@@ -170,7 +170,7 @@
   }
 
   .glass-button:hover {
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.7) !important;
     border-color: rgba(255, 255, 255, 0.25);
   }
 
